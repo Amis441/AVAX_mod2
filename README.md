@@ -59,11 +59,11 @@ import (
 
 const (
 	// TODO: choose a human-readable part for your hyperchain
-	HRP = "JogiHyper"
+	HRP = "AyushPanwar"
 	// TODO: choose a name for your hyperchain
-	Name = "Jogi"
+	Name = "Ayush"
 	// TODO: choose a token symbol
-	Symbol = "Jg"
+	Symbol = "AP"
 )
 
 var ID ids.ID
@@ -117,8 +117,8 @@ func init() {
 		// When registering new actions, ALWAYS make sure to append at the end.
 		consts.ActionRegistry.Register(&actions.Transfer{}, actions.UnmarshalTransfer, false),
 
-		// TODO: register action: actions.CreateAsset
-		// TODO: register action: actions.MintAsset
+		//register action: actions.CreateAsset
+		//register action: actions.MintAsset
 		consts.ActionRegistry.Register(&actions.CreateAsset{}, actions.UnmarshalBurnAsset, false),
 		consts.ActionRegistry.Register(&actions.MintAsset{}, actions.UnmarshalModifyAsset, false),
 
@@ -177,7 +177,7 @@ When you are done, the output should look something like this:
 database: .token-cli
 address: token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp
 chainID: 2qBqBsx7VyNCSeSHw8vPgHK4iFtLBzrCppsVQEE4YRmtVBpBXF
-metadata (can be changed later): JogiCoin
+metadata (can be changed later): myAssest
 continue (y/n): y
 ✅ txID: SP56Fs9vE2YP9kwLM5hQSVGJvqEY9ii71zzdoR3rgx4AppABuN
 ```
@@ -200,51 +200,14 @@ just to mint to yourself).
 database: .token-cli
 address: token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp
 chainID: 2qBqBsx7VyNCSeSHw8vPgHK4iFtLBzrCppsVQEE4YRmtVBpBXF
-assetID: SP56Fs9vE2YP9kwLM5hQSVGJvqEY9ii71zzdoR3rgx4AppABuN
-metadata: JogiCoin supply: 0
+assetID: BcJeaMTZn7k8Ec2pwx785aV6Q8jq4KHJ9Ti8RncVq5GpFAcRK
+metadata: myAssest supply: 0
 recipient: token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp
-amount: 1000
+amount: 2000
 continue (y/n): y
-✅ txID: X1E5CVFgFFgniFyWcj5wweGg66TyzjK2bMWWTzFwJcwFYkF81
+✅ txID: BcJeaMTZn7k8Ec2pwx785aV6Q8jq4KHJ9Ti8RncVq5GpFAcRK
 ```
 
-### Transfer Assets to Another Subnet
-
-Unlike the mint and trade demo, the AWM demo only requires running a single
-command. You can kick off a transfer between the 2 Subnets you created by
-running the following command from this location:
-
-```bash
-./build/token-cli action export
-```
-
-When you are done, the output should look something like this:
-```
-database: .token-cli
-address: token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp
-chainID: 2qBqBsx7VyNCSeSHw8vPgHK4iFtLBzrCppsVQEE4YRmtVBpBXF
-✔ assetID (use TKN for native token): SP56Fs9vE2YP9kwLM5hQSVGJvqEY9ii71zzdoR3rgx4AppABuN
-balance: 1000 SP56Fs9vE2YP9kwLM5hQSVGJvqEY9ii71zzdoR3rgx4AppABuN
-recipient: token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp
-amount: 10
-reward: 0
-available chains: 1 excluded: [Em2pZtHr7rDCzii43an2bBi1M2mTFyLN33QP1Xfjy7BcWtaH9]
-0) chainID: cKVefMmNPSKmLoshR15Fzxmx52Y5yUSPqWiJsNFUg1WgNQVMX
-destination: 0
-swap on import (y/n): n
-continue (y/n): y
-✅ txID: 24Y2zR2qEQZSmyaG1BCqpZZaWMDVDtimGDYFsEkpCcWYH4dUfJ
-perform import on destination (y/n): y
-22u9zvTa8cRX7nork3koubETsKDn43ydaVEZZWMGcTDerucq4b to: token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp source assetID: TKN output assetID: 2rST7KDPjRvDxypr6Q4SwfAwdApLwKXuukrSc42jA3dQDgo7jx value: 10000000000 reward: 10000000000 return: false
-✔ switch default chain to destination (y/n): y
-```
-
-_The `export` command will automatically run the `import` command on the
-destination. If you wish to import the AWM message using a separate account,
-you can run the `import` command after changing your key._
-
-
-### Closing the Local Avalanche Network:
 To shut down the local Avalanche network, run:
 
 ```bash
@@ -254,11 +217,4 @@ killall avalanche-network-runner
 ### CONCLUSION
 - So we have created a custom virtual machine to enable users to mint and transfer tokens.
 - With the HyperSDK, we have defined the rules and functionality of our chain, including the ability to create, mint and transfer tokens .
-  
-## Authors
 
-Lalit Kumar
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
